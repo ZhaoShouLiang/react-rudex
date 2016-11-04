@@ -31,6 +31,7 @@ class Course extends Component {
         <Card>
           <Link to={`/view/${course.id}`} style={styles.imgWrap}>
             <img src={course.image} alt={course.name} style={styles.img} />
+            <span className="likes-heart">{course.likes}</span>
           </Link>
         </Card>
       </div>
