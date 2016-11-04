@@ -1,7 +1,6 @@
 "use strict"
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Courses from "./Courses";
 import Radium , {StyleRoot} from "radium";
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
@@ -32,7 +31,7 @@ export class App extends React.Component {
       <StyleRoot style={styles.root}>
         <header style={styles.header}>
           <div style={styles.logo}>Haoqicat</div>
-          <Courses />
+          { this.props.children }
         </header>
       </StyleRoot>
     );
