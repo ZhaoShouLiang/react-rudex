@@ -1,7 +1,14 @@
-import React, { Component } from 'react';
+"use strict"
+import React from 'react';
+import ReactDOM from 'react-dom';
 import Courses from "./Courses";
+import Radium , {StyleRoot} from "radium";
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
-export class App extends Component {
+export class App extends React.Component {
+	getChildContext() {
+	    return { muiTheme: getMuiTheme() };
+	  }
   render() {
     let styles = {
       root: {
@@ -22,13 +29,16 @@ export class App extends Component {
       }
     };
     return (
-      <div style={styles.root}>
+      <StyleRoot style={styles.root}>
         <header style={styles.header}>
           <div style={styles.logo}>Haoqicat</div>
           <Courses />
         </header>
-      </div>
+      </StyleRoot>
     );
   }
 }
+App.childContextTypes = {
+  muiTheme: React.PropTypes.object.isRequired,
+};
 
