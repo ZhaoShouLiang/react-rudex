@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Courses from "./Courses";
 
 export class App extends Component {
   render() {
@@ -24,6 +25,7 @@ export class App extends Component {
       <div style={styles.root}>
         <header style={styles.header}>
           <div style={styles.logo}>Haoqicat</div>
+          <Courses />
         </header>
       </div>
     );
