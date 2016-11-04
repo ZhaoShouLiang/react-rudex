@@ -4,6 +4,7 @@ import { App } from './components/App';
 import { browserHistory, Router, Route, IndexRoute } from 'react-router';
 import Courses from './components/Courses';
 import ShowCourse from './components/ShowCourse';
+import css from './styles/style.css';
 
 
 const router = (
