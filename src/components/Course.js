@@ -2,8 +2,19 @@ import React, { Component } from 'react';
 import { Card } from 'material-ui/Card';
 import Radium from 'radium';
 import { Link } from 'react-router';
+import CourseActions from './CourseActions';
+
 
 class Course extends Component {
+  constructor(props){
+    super(props);
+    this.state={
+      likes: this.props.course.likes
+    }
+  }
+  increment() {
+    this.setState({likes: this.state.likes + 1})
+  }
   getStyles() {
     return {
       root: {
@@ -33,6 +44,7 @@ class Course extends Component {
             <img src={course.image} alt={course.name} style={styles.img} />
             <span className="likes-heart">{course.likes}</span>
           </Link>
+          <CourseActions course={course} increment={this.increment.bind(this)} likes={this.state.likes}/>
         </Card>
       </div>
     );
