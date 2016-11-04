@@ -3,6 +3,7 @@ import { Card } from 'material-ui/Card';
 import Radium from 'radium';
 import { Link } from 'react-router';
 import CourseActions from './CourseActions';
+import CSSTransitionGroup from 'react-addons-css-transition-group';
 
 
 class Course extends Component {
@@ -42,7 +43,9 @@ class Course extends Component {
         <Card>
           <Link to={`/view/${course.id}`} style={styles.imgWrap}>
             <img src={course.image} alt={course.name} style={styles.img} />
-            <span className="likes-heart">{course.likes}</span>
+              <CSSTransitionGroup transitionName="like" transitionEnterTimeout={500} transitionLeaveTimeout={500}>
+                <span key={this.state.likes} className="likes-heart">{this.state.likes}</span>
+              </CSSTransitionGroup>
           </Link>
           <CourseActions course={course} increment={this.increment.bind(this)} likes={this.state.likes}/>
         </Card>
