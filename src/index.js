@@ -5,6 +5,8 @@ import { browserHistory, Router, Route, IndexRoute } from 'react-router';
 import Courses from './components/Courses';
 import ShowCourse from './components/ShowCourse';
 import css from './styles/style.css';
+import { Provider } from 'react-redux';
+import store, { history } from './store';
 
 
 const router = (
