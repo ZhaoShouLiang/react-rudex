@@ -31,7 +31,7 @@ export class App extends React.Component {
       <StyleRoot style={styles.root}>
         <header style={styles.header}>
           <div style={styles.logo}>Haoqicat</div>
-          { this.props.children }
+          { React.cloneElement(this.props.children, this.props) }
         </header>
       </StyleRoot>
     );
