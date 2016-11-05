@@ -10,12 +10,15 @@ import store, { history } from './store';
 
 
 const router = (
-  <Router history={browserHistory}>
-    <Route path="/" component={App}>
-      <IndexRoute component={Courses}></IndexRoute>
-      <Route path="/view/:courseId" component={ShowCourse}></Route>
-    </Route>
-  </Router>
+	<Provider store={store} >
+		  <Router history={history}>
+		    <Route path="/" component={App}>
+		      <IndexRoute component={Courses}></IndexRoute>
+		      <Route path="/view/:courseId" component={ShowCourse}></Route>
+		    </Route>
+		  </Router>
+	</Provider>
+
 )
 
 render(router, document.getElementById('root'));
