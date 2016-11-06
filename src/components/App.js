@@ -1,43 +1,15 @@
-"use strict"
-import React from 'react';
-import ReactDOM from 'react-dom';
-import Radium , {StyleRoot} from "radium";
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
-
-export class App extends React.Component {
-	getChildContext() {
-	    return { muiTheme: getMuiTheme() };
-	  }
-  render() {
-    let styles = {
-      root: {
-        fontFamily: 'sans-serif'
-      },
-      header: {
-        backgroundColor: '#00bcd4',
-        height: '8.4rem',
-        width: '100%',
-        textAlign: 'center'
-      },
-      logo: {
-        fontWeight: '600',
-        fontSize: '3rem',
-        letterSpacing: '-1px',
-        lineHeight: '8.4rem',
-        color: '#fff'
-      }
-    };
-    return (
-      <StyleRoot style={styles.root}>
-        <header style={styles.header}>
-          <div style={styles.logo}>Haoqicat</div>
-          { React.cloneElement(this.props.children, this.props) }
-        </header>
-      </StyleRoot>
-    );
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import * as actionCreators from '../actions/index';
+import Main from './Main';
+function mapStateToProps(state) {
+  return {
+    courses: state.courses,
+    comments: state.comments
   }
 }
-App.childContextTypes = {
-  muiTheme: React.PropTypes.object.isRequired,
-};
-
+function mapDispachToProps(dispatch) {
+  return bindActionCreators(actionCreators, dispatch);
+}
+const App = connect(mapStateToProps, mapDispachToProps)(Main);
+export default App;

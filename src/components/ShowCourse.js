@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-
-//import courses from '../data/courses';
+// import courses from '../data/courses';
 import Course from './Course';
-
 class ShowCourse extends Component {
   getStyles() {
     return {
@@ -17,13 +15,10 @@ class ShowCourse extends Component {
       }
     };
   }
-
   render() {
     const { courseId } = this.props.params;
-
     const index = this.props.courses.findIndex((c) => c.id === courseId);
     const selectedCourse = this.props.courses[index];
-
     let styles = this.getStyles();
     return (
       <div>
@@ -36,5 +31,4 @@ class ShowCourse extends Component {
     );
   }
 }
-
 export default ShowCourse;

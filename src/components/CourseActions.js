@@ -3,7 +3,6 @@ import { Link } from 'react-router';
 import ActionThumbUp from 'material-ui/svg-icons/action/thumb-up';
 import CommunicationComment from 'material-ui/svg-icons/communication/comment';
 import Radium from 'radium';
-
 class CourseActions extends Component {
   getStyles() {
     return {
@@ -60,7 +59,6 @@ class CourseActions extends Component {
       }
     };
   }
-
   render() {
     const { course } = this.props;
     let styles = this.getStyles();
@@ -83,5 +81,4 @@ class CourseActions extends Component {
     );
   }
 }
-
 export default Radium(CourseActions);
